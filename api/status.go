@@ -16,7 +16,7 @@ type StatusResponse struct {
 	BuildDate string `json:"buildDate"`
 }
 
-func (a *API) statusHandler(w http.ResponseWriter, _ *http.Request) {
+func (a *API) StatusHandler(w http.ResponseWriter, _ *http.Request) {
 	jsResp, err := json.Marshal(
 		StatusResponse{
 			Health:    "ok",
@@ -27,12 +27,12 @@ func (a *API) statusHandler(w http.ResponseWriter, _ *http.Request) {
 		},
 	)
 	if err != nil {
-		a.logger.Error(err, "serialize status response")
+		a.Logger.Error(err, "serialize status response")
 	}
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	if _, err := w.Write(jsResp); err != nil {
-		a.logger.Error(err, "got an error processing response")
+		a.Logger.Error(err, "got an error processing response")
 	}
 }

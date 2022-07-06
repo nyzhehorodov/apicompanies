@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  tlsKey: ""
+  tlsCert: ""
+
+database:
+  uri: postgres://postgres:postgres@127.0.0.1:5432/postgres
+  minConns: 2
+  maxConns: 100
+  migration:
+    enabled: true
+    path: ./build/migrations
+    versionTable: schema_version
+
+log:
+  development: true
+  verbosity: 3

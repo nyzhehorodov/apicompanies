@@ -1,7 +1,7 @@
 package v1
 
 type CompanyRequest struct {
-	Code    int    `json:"code"`
+	Code    string `json:"code"`
 	Name    string `json:"name"`
 	Country string `json:"country"`
 	Website string `json:"website"`
